@@ -1,182 +1,148 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes
-</help_text><element><id>UMLClass</id><coordinates><x>306</x><y>774</y><w>90</w><h>117</h></coordinates><panel_attributes>lt=.
-/Ticket/
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes
+</help_text><element><id>UMLClass</id><coordinates><x>720</x><y>850</y><w>100</w><h>110</h></coordinates><panel_attributes>lt=.
+/Cinema#Ticket/
 --
 id : int
 
 /id_screening/
 /id_user/
-/id_cinemaRate/
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>99</x><y>765</y><w>90</w><h>135</h></coordinates><panel_attributes>User
+/id_rate/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>570</y><w>140</w><h>150</h></coordinates><panel_attributes>User
 --
 id: int
 email: string
 password: string
+age: int
 
 --
 buy()
 
-bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>828</y><w>144</w><h>45</h></coordinates><panel_attributes>lt=-
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>650</y><w>180</w><h>290</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=1..n
-buys &gt;</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>99</x><y>486</y><w>90</w><h>72</h></coordinates><panel_attributes>Films
+&lt; buys </panel_attributes><additional_attributes>160;10;120;10;120;260;10;260</additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>210</y><w>100</w><h>80</h></coordinates><panel_attributes>Films
 --
 id: int
 title: string
-length: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>513</x><y>459</y><w>153</w><h>126</h></coordinates><panel_attributes>Cinema
+length: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>630</y><w>170</w><h>140</h></coordinates><panel_attributes>Cinemas
 --
 id: int
 numberOfRooms : int
 name: string
 
-/id_admin/
 
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>531</y><w>153</w><h>45</h></coordinates><panel_attributes>lt=-
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>280</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=-
 m1=1..1
 m2=1..n
-airs in &gt;</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>891</x><y>648</y><w>90</w><h>81</h></coordinates><panel_attributes>Rooms
---
-id: int
-number: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>531</y><w>126</w><h>45</h></coordinates><panel_attributes>lt=-
+airs in &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>470</y><w>150</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=1..1
 m2=1..n
-contains &gt;
-</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>621</y><w>108</w><h>63</h></coordinates><panel_attributes>ScheduledTimes
---
-id: int
-time: date
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>576</y><w>189</w><h>162</h></coordinates><panel_attributes>lt=-
-m1=1..1
-m2=1..n
-schedules screenings at &gt;</panel_attributes><additional_attributes>10;10;10;80;170;80;170;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>999</x><y>279</y><w>90</w><h>99</h></coordinates><panel_attributes>Rates
+</panel_attributes><additional_attributes>10;190;70;190;70;10;130;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>220</x><y>850</y><w>100</w><h>110</h></coordinates><panel_attributes>Rates
 --
 id: int
 title: string
-price: float</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>477</y><w>351</w><h>45</h></coordinates><panel_attributes>lt=-
-m1=1..1
-m2=1..n
-practices rates &gt;</panel_attributes><additional_attributes>10;20;370;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>558</x><y>72</y><w>135</w><h>243</h></coordinates><panel_attributes>Admin
+price: float</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>130</y><w>150</w><h>120</h></coordinates><panel_attributes>Admin
 --
-id: int
-email: string
+login: string
 password: string
 
-/id_cinema/
---
-addFilm()
-removeFilm()
-addScreening()
-removeScreening()
 
 bg=blue
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>594</x><y>306</y><w>45</w><h>171</h></coordinates><panel_attributes>lt=-
-m1=1..1
-m2=1..1</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>243</x><y>72</y><w>144</w><h>243</h></coordinates><panel_attributes>SuperAdmins
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>640</y><w>160</w><h>120</h></coordinates><panel_attributes>SuperAdmins
 --
-id: int
-email: string
+login: string
 password: string
---
-addCinema()
-removeCinema()
-addAdmin()
-removeAdmin()
-addRates()
-removeRate()
-setRates()
-addScheduledTime()
-removeScheduledTime()
-setScheduledTime()
-addRoom()
-removeRoom()
 
-bg=cyan</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>405</y><w>243</w><h>72</h></coordinates><panel_attributes>lt=-
+
+bg=cyan</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>690</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=-
 m1=1..n
-m2=1..1
-&lt; is superadmined by</panel_attributes><additional_attributes>10;20;230;20;230;60</additional_attributes></element><element><id>Text</id><coordinates><x>783</x><y>117</y><w>207</w><h>72</h></coordinates><panel_attributes>/Italic ClassNames and dashed lines for Junction tables/
+m2=1..n
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Text</id><coordinates><x>700</x><y>300</y><w>130</w><h>80</h></coordinates><panel_attributes>dashed-lined tables are created for each Cinema
 --
-
 /foreign keys are in italic/
 
 
 
 
-style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>684</y><w>108</w><h>153</h></coordinates><panel_attributes>lt=.
-/Screenings/
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>540</y><w>150</w><h>170</h></coordinates><panel_attributes>lt=.
+/Cinema#Screenings/
 --
 id: int
 
 /id_cinemaFilm/
 /id_cinemaSchedule/
-/id_cinema/
-/id_cinemaRoom/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>729</y><w>108</w><h>63</h></coordinates><panel_attributes>lt=-
+/id_cinemaRoom/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>700</y><w>140</w><h>170</h></coordinates><panel_attributes>lt=-
 m1=1..1
 m2=0..n
-</panel_attributes><additional_attributes>100;20;10;20;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>387</x><y>549</y><w>657</w><h>333</h></coordinates><panel_attributes>lt=-
+nMAX = Room seats
+</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>890</y><w>430</w><h>50</h></coordinates><panel_attributes>lt=-
 m1=0..n
 m2=1..1
-</panel_attributes><additional_attributes>10;340;690;340;690;10</additional_attributes></element><element><id>Relation</id><coordinates><x>378</x><y>189</y><w>198</w><h>27</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;</panel_attributes><additional_attributes>10;10;200;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>243</x><y>396</y><w>126</w><h>90</h></coordinates><panel_attributes>lt=.
-/SuperAdminCinema/
+</panel_attributes><additional_attributes>410;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>400</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=.
+/FilmsInCinema#/
 --
-/id_superadmin/
-/id_cinema/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>306</y><w>45</w><h>108</h></coordinates><panel_attributes>lt=-
+id: int
+
+/id_film/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>470</y><w>50</w><h>180</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1..n
+m2=1..1
+</panel_attributes><additional_attributes>10;10;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>430</y><w>140</w><h>90</h></coordinates><panel_attributes>lt=.
+Cinema#Schedule
+--
+id: int
+time: DATE
+
+/id_cinema/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>740</y><w>130</w><h>100</h></coordinates><panel_attributes>lt=.
+Cinema#Rooms
+--
+roomNumber: int
+seats: int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>60</y><w>450</w><h>610</h></coordinates><panel_attributes>lt=-
 m1=1..1
 m2=1..n
-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>315</x><y>513</y><w>90</w><h>81</h></coordinates><panel_attributes>lt=.
-/FilmsInCinema/
---
-id: int
-
-/id_film/
-/id_cinema/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>396</x><y>531</y><w>135</w><h>45</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;340;10;20;430;20;430;580;380;580</additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>590</y><w>80</w><h>170</h></coordinates><panel_attributes>lt=-
 m1=1..n
 m2=1..1
-&lt; screens </panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>621</x><y>720</y><w>99</w><h>90</h></coordinates><panel_attributes>lt=.
-/CinemaSchedule/
---
-id: int
-
-/id_cinema/
-/id_ScheduledTimes/
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>711</x><y>675</y><w>99</w><h>108</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>60;10;10;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>460</y><w>120</w><h>100</h></coordinates><panel_attributes>lt=-
 m1=1..n
 m2=1..1
-</panel_attributes><additional_attributes>10;90;70;90;70;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>990</x><y>477</y><w>90</w><h>81</h></coordinates><panel_attributes>lt=.
-/CinemaRates/
---
-id: int
-
-/id_cinema/
-/id_rate/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1026</x><y>369</y><w>90</w><h>126</h></coordinates><panel_attributes>lt=-
-m1=1..n
-m2=1..1
-applies to &gt;</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>765</x><y>522</y><w>90</w><h>81</h></coordinates><panel_attributes>lt=.
-/CinemaRooms/
---
-id: int
-
-/id_cinema/
-/id_room/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>846</x><y>558</y><w>126</w><h>108</h></coordinates><panel_attributes>lt=-
-m1=1..n
-m2=1..1
-&lt; in
-</panel_attributes><additional_attributes>10;20;100;20;100;100</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>585</y><w>99</w><h>153</h></coordinates><panel_attributes>lt=-
-m1=1..1
-m2=1..n
-</panel_attributes><additional_attributes>10;10;10;140;90;140</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>594</y><w>351</w><h>261</h></coordinates><panel_attributes>lt=-
-m1=1..n
-m2=1..1
-</panel_attributes><additional_attributes>10;260;350;260;350;10</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>711</y><w>108</w><h>45</h></coordinates><panel_attributes>lt=-
-m1=1..n
-m2=1..1
-</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>153</x><y>594</y><w>126</w><h>63</h></coordinates><panel_attributes>lt=..
+</panel_attributes><additional_attributes>80;80;80;20;10;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>220</x><y>320</y><w>110</w><h>130</h></coordinates><panel_attributes>lt=..
 Note : Film length is used to make sure a screening can not overlap on another.
 bg=yellow
 style=wordwrap
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>675</x><y>360</y><w>180</w><h>63</h></coordinates><panel_attributes>lt=..
-Note : Number of rooms is used to make sure to schedule screenings only in available rooms in a given cinema.
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>280</y><w>150</w><h>60</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;40;130;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>0</x><y>300</y><w>110</w><h>330</h></coordinates><panel_attributes>lt=..
+Note : SuperAdmin an Admin are database administrators, they do not have a table inside the cinema_db database. Superadmins have full permissions over all the database, Admins only have data permission on their Cinema's Tables.
 bg=yellow
 style=wordwrap
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>126</x><y>540</y><w>81</w><h>72</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>70;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>621</x><y>414</y><w>72</w><h>108</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>60;10;10;100</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>760</y><w>210</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1..1
+m2=1..n
+contains &gt;</panel_attributes><additional_attributes>10;10;10;50;190;50</additional_attributes></element><element><id>UMLNote</id><coordinates><x>220</x><y>100</y><w>170</w><h>100</h></coordinates><panel_attributes>lt=..
+Note : Films Table is a global table accessible by all cinema Admins with SELECT and INSERT permissions.
+bg=yellow
+style=wordwrap
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>150</x><y>770</y><w>140</w><h>70</h></coordinates><panel_attributes>lt=..
+Note : RatesTable is a global table accessible by all cinemas
+bg=yellow
+style=wordwrap
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>960</x><y>450</y><w>140</w><h>100</h></coordinates><panel_attributes>lt=..
+Note : Users Table is a global table accessible by all cinemas so that a registered user can visit any Cinema.
+bg=yellow
+style=wordwrap
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>240</y><w>50</w><h>210</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>210</y><w>150</w><h>250</h></coordinates><panel_attributes>lt=-
+m1=1..1
+m2=1..1</panel_attributes><additional_attributes>130;10;80;10;80;220;10;220</additional_attributes></element><element><id>Relation</id><coordinates><x>110</x><y>250</y><w>250</w><h>410</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+</panel_attributes><additional_attributes>10;390;10;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>750</y><w>150</w><h>170</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+</panel_attributes><additional_attributes>10;10;10;140;130;140</additional_attributes></element><element><id>Relation</id><coordinates><x>40</x><y>710</y><w>1060</w><h>300</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+</panel_attributes><additional_attributes>10;50;10;280;1020;280;1020;10</additional_attributes></element></diagram>
