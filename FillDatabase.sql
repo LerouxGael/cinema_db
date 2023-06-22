@@ -1,5 +1,5 @@
-USE cinema_db;
 
+USE cinema_db;
 
 /*
 
@@ -59,47 +59,21 @@ INSERT INTO Films (title, `length`) VALUES
 ('The Shining', 146),
 ('Raiders of the Lost Ark', 115);
 
-
 /*
 
 CREATING A CINEMA
 
 */
+/*Associated tables and Admin are created within the Stored procedure*/
 
-INSERT INTO Cinemas(id,  numberOfRooms, `name`)
-VALUES( 1, 7, 'Cinéma Rathon' );
+CALL new_cinema('Cinema Rathon', 8, '[50,60,80,100,40,30,80,80]');
 
-/*Associated tables are created with the TRIGGER created before*/
+/* Inserting 15 movies in this cinema's table*/
+INSERT INTO FilmsInCinema1(id_film) SELECT (id) FROM Films LIMIT 15;
 
+/*Inserting available schedule*/
 
-INSER INTO FilmsInCinema1(id_film)
-VALUES 
-    (1),
-    (3),
-    (6),
-    (9),
-    (10),
-    (13),
-    (16),
-    (50),
-    (40),
-    (30),
-    (20);
-
-
-INSERT INTO Cinema1Rooms(roomNumber, seats)
-VALUES 
-    (1,50),
-    (2,65),
-    (3,100),
-    (4,92),
-    (5,75),
-    (6,100),
-    (7,66),
-
-
-
-INSERT INTO Cinema1Schedule (scheduledTime)
+INSERT INTO ScheduleCinema1 (scheduledTime)
 VALUES
     ('2023-06-12 13:00:00'),
     ('2023-06-12 16:00:00'),
@@ -130,49 +104,23 @@ VALUES
     ('2023-06-18 20:00:00'),
     ('2023-06-18 23:00:00');
 
+/*Filling junction table, each room now has it's own schedule*/
+INSERT INTO ScheduleRoomCinema1 (id_room, id_schedule)
+SELECT r.roomNumber, s.id
+FROM RoomsCinema1 AS r
+CROSS JOIN ScheduleCinema1 AS s;
+
+/*Filling Screenings table, */
+
+INSERT INTO ScreeningsCinema1 (id_room_schedule, id_film)
+SELECT id, (SELECT id_film FROM FilmsInCinema1 ORDER BY RAND() LIMIT 1)
+FROM ScheduleRoomCinema1;
+
+/*Creating tickets*/
+
+INSERT INTO TicketsCinema1 (id_screening)
 
 
-
-/* CREATING ADMIN for Cinema 1*/
-
-CREATE USER 'admin-cinema1'@'%' IDENTIFIED BY 'aTrueAdm1nPassw0rd';
-
-/* Cinema admins can not delete or update Films Table because it is shared with other cinemas*/
-GRANT SELECT, INSERT ON cinema_db.Films TO 'admin-cinema1'@'%';
-
-GRANT ALL PRIVILEGES ON cinema_db.FilmsInCinema1 TO 'admin-cinema1'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema1Schedule TO 'admin-cinema1'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema1Screenings TO 'admin-cinema1'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema1Tickets TO 'admin-cinema1'@'%';
-
-FLUSH PRIVILEGES;
-
-
-
-
-/*
-
-CREATING A SECOND CINEMA
-
-*/
-
-INSERT INTO Cinemas(id,  numberOfRooms, `name`)
-VALUES( 1, 11, 'Cinéma Rabout' );
-
-
-/* CREATING ADMIN for Cinema 2*/
-
-CREATE USER 'admin-cinema2'@'%' IDENTIFIED BY 'anoth3rTrueAdm1nPassw0rd';
-
-/* Cinema admins can not delete or update Films Table because it is shared with other cinemas*/
-GRANT SELECT, INSERT ON cinema_db.Films TO 'admin-cinema2'@'%';
-
-GRANT ALL PRIVILEGES ON cinema_db.FilmsInCinema2 TO 'admin-cinema2'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema2Schedule TO 'admin-cinema2'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema2Screenings TO 'admin-cinema2'@'%';
-GRANT ALL PRIVILEGES ON cinema_db.Cinema2Tickets TO 'admin-cinema2'@'%';
-
-FLUSH PRIVILEGES;
 
 
 
