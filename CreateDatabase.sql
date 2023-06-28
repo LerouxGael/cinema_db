@@ -92,7 +92,7 @@ BEGIN
     SET room_table_name = CONCAT('RoomsCinema',cinema_id);
 
     /*Creating table for cinema rooms*/
-    SET create_table_query = CONCAT('CREATE TABLE ', room_table_name, ' (roomNumber INT(11) PRIMARY KEY, seats INT(11) NOT NULL)');
+    SET create_table_query = CONCAT('CREATE TABLE ', room_table_name, ' (roomNumber INT(11) PRIMARY KEY, seats INT(11) NOT NULL, INDEX index_seats (seats))');
     PREPARE create_table_stmt FROM create_table_query;
     EXECUTE create_table_stmt;
     DEALLOCATE PREPARE create_table_stmt;
@@ -151,14 +151,14 @@ BEGIN
 
     /* --Creating table for the cinema's rooms Schedule (each room's schedule)*/
     SET schedule_room_table_name = CONCAT('ScheduleRoomCinema', cinema_id);
-    SET create_table_query = CONCAT('CREATE TABLE ', schedule_room_table_name, ' (id INT AUTO_INCREMENT PRIMARY KEY, id_room INT NOT NULL, id_schedule INT NOT NULL, FOREIGN KEY (id_room) REFERENCES ', room_table_name,'(roomNumber), FOREIGN KEY (id_schedule) REFERENCES ', schedule_table_name,'(id))');
+    SET create_table_query = CONCAT('CREATE TABLE ', schedule_room_table_name, ' (id INT AUTO_INCREMENT PRIMARY KEY, id_room INT NOT NULL, id_schedule INT NOT NULL, nb_seats INT NOT NULL, FOREIGN KEY (nb_seats) REFERENCES ',room_table_name,'(seats), FOREIGN KEY (id_room) REFERENCES ', room_table_name,'(roomNumber), FOREIGN KEY (id_schedule) REFERENCES ', schedule_table_name,'(id))');
     PREPARE create_table_stmt FROM create_table_query;
     EXECUTE create_table_stmt;
     DEALLOCATE PREPARE create_table_stmt;
 
     /* --Creating table for the cinema's Screenings (film in a specific room, at a specific time) */
     SET screenings_table_name = CONCAT('ScreeningsCinema', cinema_id);
-    SET create_table_query = CONCAT('CREATE TABLE ', screenings_table_name, ' (id INT AUTO_INCREMENT PRIMARY KEY, id_film INT NOT NULL, id_room_schedule INT NOT NULL UNIQUE, FOREIGN KEY (id_film) REFERENCES ', film_table_name,'(id), FOREIGN KEY (id_room_schedule) REFERENCES ', schedule_room_table_name,'(id))');
+    SET create_table_query = CONCAT('CREATE TABLE ', screenings_table_name, ' (id INT AUTO_INCREMENT PRIMARY KEY, id_film INT NOT NULL, id_room_schedule INT NOT NULL UNIQUE, nb_seats INT NOT NULL, FOREIGN KEY (nb_seats) REFERENCES ', schedule_room_table_name, '(nb_seats), FOREIGN KEY (id_film) REFERENCES ', film_table_name,'(id), FOREIGN KEY (id_room_schedule) REFERENCES ', schedule_room_table_name,'(id))');
     PREPARE create_table_stmt FROM create_table_query;
     EXECUTE create_table_stmt;
     DEALLOCATE PREPARE create_table_stmt;
